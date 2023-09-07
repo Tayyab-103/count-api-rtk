@@ -1,12 +1,22 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, reset } from "../redux/slices/counterSlice";
+import { useNavigate } from "react-router-dom";
 
 const Counterapp = () => {
   const counter = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
+
+  const Navigate = useNavigate();
+  const routeChange = () => {
+    Navigate("/products");
+  };
   return (
     <>
+      <button className="btn btn-info float-left my-2" onClick={routeChange}>
+        {" "}
+        Product page{" "}
+      </button>
       <h1 className="text-center my-2">Counter App Using Redux-Toolkit</h1>
       <div className=" container my-5 text-center d-flex align-items-center justify-content-center vh-100">
         <div className="shadow-lg p-3 mb-5 bg-white rounded">
